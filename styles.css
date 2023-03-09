@@ -61,7 +61,3 @@ h1 {
   background-clip: text;
   -webkit-background-clip: text;
 }
-
-h2:link, h2:visited, h2:hover, h2:active {
-  color: white;
-}
