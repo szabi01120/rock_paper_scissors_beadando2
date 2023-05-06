@@ -34,26 +34,33 @@ const game = () => {
     if (playerChoice === "rock" && computerChoice === "scissors") {
         win++;
         playerScore.innerHTML = win;
+        alert("NYERTÉL!");
     } else if (playerChoice === "rock" && computerChoice === "paper") {
         lose++;
         computerScore.innerHTML = lose;
+        alert("VESZTETTÉL!");
     } else if (playerChoice === "paper" && computerChoice === "rock") {
         win++;
         playerScore.innerHTML = win;
+        alert("NYERTÉL!");
     } else if (playerChoice === "paper" && computerChoice === "scissors") {
         lose++;
         computerScore.innerHTML = lose;
+        alert("VESZTETTÉL!");
     } else if (playerChoice === "scissors" && computerChoice === "paper") {
         win++;
         playerScore.innerHTML = win;
+        alert("NYERTÉL!");
     }
     else if (playerChoice === "scissors" && computerChoice === "rock") {
         lose++;
         computerScore.innerHTML = lose;
+        alert("VESZTETTÉL!");
     }
     else if (playerChoice === computerChoice) {
         draw++;
         drawScore.innerHTML = draw;
+        alert("DÖNTETLEN!");
     }
 }
 
