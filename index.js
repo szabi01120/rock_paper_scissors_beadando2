@@ -1,36 +1,53 @@
-const win = 0;
-const lose = 0;
-const draw = 0;
+let win = 0;
+let lose = 0;
+let draw = 0;
 
-const rock = document.getElementById("rock");
-const paper = document.getElementById("paper");
-const scissors = document.getElementById("scissors");
+let playerChoice = "";
 
-const playerScore = document.getElementById("playerScore");
-const computerScore = document.getElementById("compScore");
-const drawScore = document.getElementById("drawScore");
+let rock = document.getElementById("rock");
+let paper = document.getElementById("paper");
+let scissors = document.getElementById("scissors");
 
-const play = () => {
-    rock.addEventListener("click", () => {
-        return "rock";
-    });
-    paper.addEventListener("click", () => {
-        return "paper";
-    });
-    scissors.addEventListener("click", () => {
-        return "scissors";
-    });
-}
+let playerScore = document.getElementById("playerScore");
+let computerScore = document.getElementById("compScore");
+let drawScore = document.getElementById("drawScore");
+let resetButton = document.getElementById("reset");
 
-const computerPlay = () => {
-    const choice = ["rock", "paper", "scissors"];
-    const random = Math.floor(Math.random() * choice.length);
+playerScore.innerHTML = win;
+computerScore.innerHTML = lose;
+drawScore.innerHTML = draw;
+
+let computerPlay = () => {
+    let choice = ["rock", "paper", "scissors"];
+    let random = Math.floor(Math.random() * choice.length);
     return choice[random];
 }
 
-const game = () => {
-    const playerChoice = play();
-    const computerChoice = computerPlay();
+let playerPlay = () => {
+    rock.addEventListener("click", () => {
+        playerChoice = "rock";
+        winnerSelection();
+    });
+    paper.addEventListener("click", () => {
+        playerChoice = "paper";
+        winnerSelection();
+    });
+    scissors.addEventListener("click", () => {
+        playerChoice = "scissors";
+        winnerSelection();
+    });
+    resetButton.addEventListener("click", () => {
+        win = 0;
+        lose = 0;
+        draw = 0;
+        playerScore.innerHTML = win;
+        computerScore.innerHTML = lose;
+        drawScore.innerHTML = draw;
+    });
+}
+
+let winnerSelection = () => {
+    let computerChoice = computerPlay();
     if (playerChoice === "rock" && computerChoice === "scissors") {
         win++;
         playerScore.innerHTML = win;
@@ -62,10 +79,6 @@ const game = () => {
         drawScore.innerHTML = draw;
         alert("DÖNTETLEN!");
     }
+    
 }
-
-
-
-play();
-computerPlay();
-game();
+playerPlay();
